@@ -159,28 +159,36 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 ```
 #include <stdio.h>
 #include <string.h>
+
 int main() {
-    char str[100];
-    int num_rows, i, j, len;
-    printf("Enter a string: ");
-    scanf("%s", str);
+    char str[] = "PROGRAM";
+    int num_rows, len = strlen(str);
+
     printf("Enter number of rows: ");
     scanf("%d", &num_rows);
-         len = strlen(str);
-         for (i = 1; i <= num_rows; i++) {
-         for (j = 0; j < len; j++) {
-         printf("%c ", str[j]);
+
+    int midpoint = (2 * num_rows - 1) / 2;
+
+    for (int i = 1; i <= num_rows; i++) {
+        int j;
+        for (j = 0; j < num_rows - i; j++) {
+            printf(" ");
+        }
+        for (j = 0; j < 2 * i - 1; j++) {
+            printf("%c", str[j % len]);
+        }
+        printf("\n");
+    }
+    return 0;
 }
-         printf("\n");
-}
-        return 0;
-}
+
 ```
 
 
  ## OUTPUT
 
- ![Screenshot 2025-04-28 210859](https://github.com/user-attachments/assets/9e8a61fa-87cb-4bd0-8de5-ec36b1c8ec5d)
+![Screenshot 2025-05-27 173228](https://github.com/user-attachments/assets/8fbbd09d-c8ea-4804-877e-c23cb026919c)
+
 
 
 ## RESULT
@@ -199,6 +207,7 @@ Thus the C program to String process executed successfully
 Write a c program to read and display an array of any 6 integer elements using pointer
 
 ## ALGORITHM
+```
 Step 1: Start the program.
 Step 2: Declare the following:
 •	Integer variable i for iteration.
@@ -211,7 +220,7 @@ Step 4: Loop from i = 0 to i < n:
 Step 5: Loop from i = 0 to i < n:
 •	Print the element at *(parr + i) using pointer dereferencing.
 Step 6: End the program.
-
+```
 ## PROGRAM
 ```
 #include <stdio.h>
